@@ -1,0 +1,65 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection("caseStudies");
+
+  return caseStudies.map((caseStudy) => ({
+    params: { slug: caseStudy.data.slug },
+    props: { caseStudy },
+  }));
+}
+
+const { caseStudy } = Astro.props;
+const { Content } = await render(caseStudy);
+const data = caseStudy.data;
+---
+
+<BaseLayout title={`${data.title} - Harsh Bhardwaj`} description={data.seoDescription}>
+  <article>
+    <header class="container-page py-16 sm:py-24">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+        {data.company} / {data.visibility}
+      </p>
+      <h1 class="max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">{data.title}</h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">{data.summary}</p>
+      <div class="mt-8 grid gap-4 border-y border-[var(--color-line)] py-6 sm:grid-cols-3">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Role</p>
+          <p class="mt-2 font-semibold">{data.role}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Timeframe</p>
+          <p class="mt-2 font-semibold">{data.timeframe}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Impact</p>
+          <p class="mt-2 font-semibold">{data.heroMetric?.value ?? "TBD"}</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="container-page grid gap-10 pb-20 lg:grid-cols-[260px_1fr]">
+      <aside class="space-y-6 text-sm lg:sticky lg:top-8 lg:self-start">
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Domains</p>
+          <div class="flex flex-wrap gap-2">
+            {data.domain.map((item) => <span class="border border-[var(--color-line)] px-2.5 py-1">{item}</span>)}
+          </div>
+        </div>
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Skills</p>
+          <div class="flex flex-wrap gap-2">
+            {data.skills.map((item) => <span class="border border-[var(--color-line)] px-2.5 py-1">{item}</span>)}
+          </div>
+        </div>
+      </aside>
+
+      <div class="case-study-content">
+        <Content />
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+

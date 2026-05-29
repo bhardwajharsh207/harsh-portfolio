@@ -1,0 +1,85 @@
+---
+import { getCollection } from "astro:content";
+import CaseStudyCard from "@/components/CaseStudyCard.astro";
+import LabProjectCard from "@/components/LabProjectCard.astro";
+import WritingCard from "@/components/WritingCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sortByPriority } from "@/lib/content";
+
+const caseStudies = sortByPriority(await getCollection("caseStudies"));
+const featuredCaseStudies = caseStudies.filter((caseStudy) => caseStudy.data.featured).slice(0, 4);
+const labProjects = sortByPriority(await getCollection("labProjects"));
+const writing = sortByPriority(await getCollection("writing"));
+---
+
+<BaseLayout>
+  <section class="container-page py-20 sm:py-28">
+    <p class="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+      Product Manager + Builder
+    </p>
+    <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <div>
+        <h1 class="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
+          Product manager building useful products from ambiguity to shipped outcomes.
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
+          I connect user insight, business context, and technical systems to build products that are clear,
+          measurable, and usable.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a
+            href="/work"
+            class="rounded-full bg-[var(--color-charcoal)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-dark)]"
+          >
+            View Work
+          </a>
+          <a
+            href="/stack"
+            class="rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+          >
+            See Stack
+          </a>
+        </div>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+        <div class="border-l border-[var(--color-line)] pl-5">
+          <p class="text-2xl font-semibold">Commerce</p>
+          <p class="mt-1 text-sm text-[var(--color-muted)]">SaaS, growth, and product systems</p>
+        </div>
+        <div class="border-l border-[var(--color-line)] pl-5">
+          <p class="text-2xl font-semibold">4</p>
+          <p class="mt-1 text-sm text-[var(--color-muted)]">Initial case studies planned</p>
+        </div>
+        <div class="border-l border-[var(--color-line)] pl-5">
+          <p class="text-2xl font-semibold">0 to 1</p>
+          <p class="mt-1 text-sm text-[var(--color-muted)]">Strategy to execution narrative</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-charcoal)] py-16 text-white sm:py-20">
+    <div class="container-page">
+      <div class="mb-10 max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Featured Work</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Case studies that will carry the proof.</h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          featuredCaseStudies.map((caseStudy) => <CaseStudyCard caseStudy={caseStudy} variant="dark" />)
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page grid gap-5 py-16 sm:py-20 lg:grid-cols-2">
+    <div>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Lab</p>
+      <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Experiments that show how the work is built.</h2>
+    </div>
+    <div class="grid gap-5">
+      {labProjects.slice(0, 1).map((project) => <LabProjectCard project={project} />)}
+      {writing.slice(0, 1).map((post) => <WritingCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

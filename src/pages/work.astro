@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import CaseStudyCard from "@/components/CaseStudyCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sortByPriority } from "@/lib/content";
+
+const caseStudies = sortByPriority(await getCollection("caseStudies"));
+---
+
+<BaseLayout title="Work - Harsh Bhardwaj">
+  <section class="container-page py-16 sm:py-24">
+    <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Work</p>
+    <h1 class="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">Product case studies and proof of work.</h1>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
+      CommerceIQ and Leap case studies, structured around problem framing, product decisions, technical context,
+      tradeoffs, and outcomes.
+    </p>
+  </section>
+  <section class="container-page pb-20">
+    <div class="grid gap-5 md:grid-cols-2">
+      {caseStudies.map((caseStudy) => <CaseStudyCard caseStudy={caseStudy} />)}
+    </div>
+  </section>
+</BaseLayout>

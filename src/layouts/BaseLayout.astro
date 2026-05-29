@@ -1,0 +1,86 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Harsh Bhardwaj - Product Manager",
+  description = "Product manager portfolio focused on product strategy, technical product work, commerce, growth, and AI-native product systems.",
+  canonicalPath = Astro.url.pathname,
+  ogImage = "/og-image.svg",
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://harsh-portfolio.vercel.app";
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Harsh Bhardwaj",
+  jobTitle: "Product Manager",
+  url: siteUrl,
+  description,
+  knowsAbout: [
+    "Product Management",
+    "Technical Product Management",
+    "Product Strategy",
+    "Commerce Product Management",
+    "Growth Product Management",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="border-b border-[var(--color-line)] bg-[var(--color-paper)]/90 backdrop-blur">
+      <nav class="container-page flex min-h-16 items-center justify-between gap-6">
+        <a href="/" class="font-semibold tracking-tight">Harsh Bhardwaj</a>
+        <div class="hidden items-center gap-6 text-sm text-[var(--color-muted)] md:flex">
+          <a class="transition hover:text-[var(--color-ink)]" href="/work">Work</a>
+          <a class="transition hover:text-[var(--color-ink)]" href="/lab">Lab</a>
+          <a class="transition hover:text-[var(--color-ink)]" href="/writing">Writing</a>
+          <a class="transition hover:text-[var(--color-ink)]" href="/stack">Stack</a>
+          <a class="transition hover:text-[var(--color-ink)]" href="/about">About</a>
+        </div>
+        <a
+          href="/contact"
+          class="rounded-full border border-[var(--color-line)] px-4 py-2 text-sm font-medium transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+        >
+          Contact
+        </a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="border-t border-[var(--color-line)] py-10">
+      <div class="container-page flex flex-col gap-3 text-sm text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2026 Harsh Bhardwaj</p>
+        <p>Product manager with technical depth.</p>
+      </div>
+    </footer>
+  </body>
+</html>

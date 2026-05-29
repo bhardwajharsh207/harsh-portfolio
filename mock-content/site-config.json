@@ -1,0 +1,55 @@
+{
+  "name": "Harsh Bhardwaj",
+  "title": "Product Manager",
+  "positioning": "Product Manager with technical depth, focused on user-centered, business-relevant products and increasingly AI-native systems.",
+  "shortBio": "I build and lead products by connecting user insight, business judgment, and technical execution.",
+  "links": {
+    "github": "TBD",
+    "linkedin": "TBD",
+    "email": "TBD",
+    "resume": "TBD"
+  },
+  "seo": {
+    "defaultTitle": "Harsh Bhardwaj - Product Manager",
+    "defaultDescription": "Product manager portfolio focused on product strategy, technical product work, commerce, growth, and AI-native product systems.",
+    "siteUrl": "https://harsh-portfolio.vercel.app",
+    "ogImage": "/og-image.png"
+  },
+  "homepage": {
+    "heroEyebrow": "Product Manager + Builder",
+    "heroHeadline": "Product manager building useful products from ambiguity to shipped outcomes.",
+    "heroSubheadline": "I connect user insight, business context, and technical systems to build products that are clear, measurable, and usable.",
+    "primaryCta": {
+      "label": "View Work",
+      "url": "/work",
+      "type": "other"
+    },
+    "secondaryCta": {
+      "label": "GitHub",
+      "url": "TBD",
+      "type": "github"
+    },
+    "proofPoints": [
+      {
+        "label": "Product domains",
+        "value": "Commerce, growth, SaaS"
+      },
+      {
+        "label": "Core proof",
+        "value": "4 case studies"
+      },
+      {
+        "label": "Working style",
+        "value": "Strategy to execution"
+      }
+    ],
+    "featuredCaseStudies": [
+      "commerceiq-case-study-1",
+      "leap-case-study-1",
+      "commerceiq-case-study-2",
+      "leap-case-study-2"
+    ],
+    "featuredLabProjects": [],
+    "featuredWriting": []
+  }
+}

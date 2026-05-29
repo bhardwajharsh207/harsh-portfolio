@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Harsh Bhardwaj Portfolio</title>
+  <desc id="desc">Product manager with technical depth.</desc>
+  <rect width="1200" height="630" fill="#f8f6f1"/>
+  <rect x="72" y="72" width="1056" height="486" fill="#171a18"/>
+  <text x="120" y="210" fill="#5eead4" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="4">PRODUCT MANAGER + BUILDER</text>
+  <text x="120" y="310" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">Harsh Bhardwaj</text>
+  <text x="120" y="390" fill="#d7d2c8" font-family="Inter, Arial, sans-serif" font-size="34">Product manager with technical depth.</text>
+  <text x="120" y="470" fill="#d7d2c8" font-family="Inter, Arial, sans-serif" font-size="26">Commerce · Growth · Product Systems</text>
+</svg>
