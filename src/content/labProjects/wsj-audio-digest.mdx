@@ -1,0 +1,41 @@
+---
+slug: wsj-audio-digest
+title: "WSJ Audio Digest"
+summary: "A local-first automation concept that turns a daily print-edition reading workflow into structured audio for morning listening."
+seoDescription: "A portfolio lab project on a local Wall Street Journal audio digest pipeline using PDF or OCR extraction, text cleanup, local text-to-speech, and macOS scheduling."
+status: "idea"
+featured: true
+priority: 3
+timeframe: "2026"
+tags:
+  - "Personal Automation"
+  - "Audio"
+  - "Local AI"
+stack:
+  - "PDF/OCR"
+  - "TTS"
+  - "ffmpeg"
+  - "launchd"
+problem: "Long-form daily reading is valuable but hard to fit into mornings. The product question is whether the print-edition structure can be preserved while making the content listenable."
+whatItDoes: "Plans a local pipeline that obtains a legitimate print-edition source, extracts text, cleans and sections it, synthesizes audio, packages section and full-edition files, and schedules generation on macOS."
+technicalDepth: "The cautious MVP keeps retrieval manual until the access path is proven, then uses local extraction, OCR fallback, offline or built-in TTS, audio packaging, and launchd scheduling."
+links: []
+images: []
+relatedCaseStudies: []
+---
+
+## Experiment
+
+The first version avoids fragile login automation. It starts with a proven manual source path, then automates extraction, sectioning, audio synthesis, and morning delivery.
+
+## Why It Belongs Here
+
+This shows practical automation judgment: build the reliable local loop first, avoid legal or operational overreach, and only automate the access path after it is validated.
+
+## Next Proof To Add
+
+- Manual source validation
+- Sectioning sample
+- Local audio output
+- Scheduled morning run log
+

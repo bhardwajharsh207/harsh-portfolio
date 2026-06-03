@@ -3,6 +3,6 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://harsh-portfolio.vercel.app",
+  site: "https://harsh-portfolio-ecru-two.vercel.app",
   integrations: [mdx(), sitemap()],
 });
