@@ -5,7 +5,7 @@ import LabProjectCard from "@/components/LabProjectCard.astro";
 import WritingCard from "@/components/WritingCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { sortByPriority } from "@/lib/content";
-import { productManagerPersona, siteLinks } from "@/lib/site";
+import { profileImage, siteLinks } from "@/lib/site";
 
 const caseStudies = sortByPriority(await getCollection("caseStudies"));
 const featuredCaseStudies = caseStudies.filter((caseStudy) => caseStudy.data.featured).slice(0, 4);
@@ -14,14 +14,14 @@ const writing = sortByPriority(await getCollection("writing"));
 ---
 
 <BaseLayout>
-  <section class="container-page py-20 sm:py-28">
-    <p class="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-      Product Manager + Builder
-    </p>
-    <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+  <section class="container-page py-14 sm:py-20">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
       <div>
-        <h1 class="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
-          Product manager building useful products from ambiguity to shipped outcomes.
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+          Product Manager + Builder
+        </p>
+        <h1 class="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-tight sm:text-5xl lg:text-6xl">
+          Product manager building useful products from messy problems.
         </h1>
         <p class="mt-7 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
           I work where customer pain, business pressure, and system complexity meet: commerce, growth,
@@ -35,10 +35,10 @@ const writing = sortByPriority(await getCollection("writing"));
             View Work
           </a>
           <a
-            href="/stack"
+            href="/lab"
             class="rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
           >
-            See Stack
+            Product Projects
           </a>
           <a
             href={siteLinks.linkedin}
@@ -50,37 +50,58 @@ const writing = sortByPriority(await getCollection("writing"));
           </a>
         </div>
       </div>
-      <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-        <div class="border-l border-[var(--color-line)] pl-5">
-          <p class="text-2xl font-semibold">Commerce</p>
-          <p class="mt-1 text-sm text-[var(--color-muted)]">SaaS, growth, and product systems</p>
+      <aside class="grid gap-5">
+        <figure class="overflow-hidden rounded-[8px] border border-[var(--color-line)] bg-[var(--color-paper-strong)]">
+          <img
+            src={profileImage}
+            alt="Harsh Bhardwaj"
+            width="400"
+            height="600"
+            class="aspect-[2/3] w-full object-cover"
+            loading="eager"
+          />
+        </figure>
+        <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+          <div class="border-l border-[var(--color-line)] pl-5">
+            <p class="text-2xl font-semibold">6</p>
+            <p class="mt-1 text-sm text-[var(--color-muted)]">Case studies across commerce, growth, and AI</p>
+          </div>
+          <div class="border-l border-[var(--color-line)] pl-5">
+            <p class="text-2xl font-semibold">2</p>
+            <p class="mt-1 text-sm text-[var(--color-muted)]">Active product experiments with build logs</p>
+          </div>
+          <div class="border-l border-[var(--color-line)] pl-5">
+            <p class="text-2xl font-semibold">Proof</p>
+            <p class="mt-1 text-sm text-[var(--color-muted)]">Work samples, technical notes, and links</p>
+          </div>
         </div>
-        <div class="border-l border-[var(--color-line)] pl-5">
-          <p class="text-2xl font-semibold">6</p>
-          <p class="mt-1 text-sm text-[var(--color-muted)]">Case studies across commerce and growth</p>
-        </div>
-        <div class="border-l border-[var(--color-line)] pl-5">
-          <p class="text-2xl font-semibold">0 to 1</p>
-          <p class="mt-1 text-sm text-[var(--color-muted)]">Strategy to execution narrative</p>
-        </div>
-      </div>
+      </aside>
     </div>
   </section>
 
   <section class="container-page border-y border-[var(--color-line)] py-12">
     <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <div>
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Product Persona</p>
-        <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">{productManagerPersona.headline}</h2>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Project Summary</p>
+        <h2 class="max-w-xl text-2xl font-semibold tracking-tight sm:text-3xl">Start with the strongest proof.</h2>
+        <p class="mt-4 max-w-xl leading-8 text-[var(--color-muted)]">
+          The portfolio is organized so recruiters, hiring managers, and collaborators can quickly move from summary
+          signal to detailed work.
+        </p>
       </div>
-      <div class="grid gap-3 sm:grid-cols-2">
-        {
-          productManagerPersona.principles.map((principle) => (
-            <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
-              <p class="font-semibold leading-7">{principle}</p>
-            </div>
-          ))
-        }
+      <div class="grid gap-3 sm:grid-cols-3">
+        <a href="/work" class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5 transition hover:border-[var(--color-accent)]">
+          <p class="font-semibold">Case Studies</p>
+          <p class="mt-3 text-sm leading-6 text-[var(--color-muted)]">CommerceIQ and Leap stories across AI analytics, workflow design, and growth.</p>
+        </a>
+        <a href="/lab" class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5 transition hover:border-[var(--color-accent)]">
+          <p class="font-semibold">Product Projects</p>
+          <p class="mt-3 text-sm leading-6 text-[var(--color-muted)]">Lead Engine and WSJ Audio Digest experiments shaped into visible build tracks.</p>
+        </a>
+        <a href="/writing" class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5 transition hover:border-[var(--color-accent)]">
+          <p class="font-semibold">Build Notes</p>
+          <p class="mt-3 text-sm leading-6 text-[var(--color-muted)]">Short notes on how the portfolio and product experiments are being built.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -88,8 +109,8 @@ const writing = sortByPriority(await getCollection("writing"));
   <section class="bg-[var(--color-charcoal)] py-16 text-white sm:py-20">
     <div class="container-page">
       <div class="mb-10 max-w-2xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Featured Work</p>
-        <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Case studies that will carry the proof.</h2>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Selected Work</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Product work across AI, analytics, growth, and workflow design.</h2>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
         {
@@ -101,8 +122,8 @@ const writing = sortByPriority(await getCollection("writing"));
 
   <section class="container-page grid gap-5 py-16 sm:py-20 lg:grid-cols-2">
     <div>
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Lab</p>
-        <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Experiments that show how the work is built.</h2>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Product Projects</p>
+        <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Two active product directions.</h2>
         <p class="mt-5 max-w-xl leading-8 text-[var(--color-muted)]">
           These are product concepts being developed as visible build tracks, starting with problem framing and
           first proof before full product polish.

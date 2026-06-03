@@ -286,12 +286,12 @@ Scope:
 - Remove visible "public-safe", "sanitized", "placeholder", and "draft" language.
 - Replace internal labels with normal portfolio language.
 - Add real contact links for LinkedIn and GitHub.
-- Add PM persona narrative to homepage and About.
+- Keep the PM persona as an internal review lens, not a visible website section.
 
 Acceptance criteria:
 - Public pages read like a normal portfolio, not an internal review document.
 - Contact page has live LinkedIn and GitHub links.
-- Homepage communicates the PM persona clearly.
+- Homepage communicates product strengths through clear work, project, writing, and contact paths.
 
 ## Task 16: Product Experiment Detail Pages
 
@@ -325,3 +325,34 @@ Acceptance criteria:
 - Each product has a credible first-screen narrative.
 - Each product page has one clear CTA.
 - Neither page overclaims proof before a real experiment runs.
+
+## Task 18: Add Portrait And Project Access
+
+Status: Complete.
+
+Goal: Make the public website feel more personal and easier to navigate.
+
+Scope:
+- Add Harsh's Foster portrait to the homepage and About page.
+- Replace the internal persona block with a project summary section.
+- Make case studies, product projects, and build notes obvious first-click paths.
+
+Acceptance criteria:
+- Homepage and About use the approved portrait.
+- There is no visible Product Persona section.
+- Product projects are reachable from the hero and project summary.
+
+## Task 19: Maker And Product Reviewer Loop
+
+Status: Complete.
+
+Goal: Add a repeatable review loop for future public-facing work.
+
+Scope:
+- Create a Codex skill that runs maker, reviewer, rewrite, hygiene, and verification passes.
+- Use the product persona as a review lens for usefulness, signal, clarity, and trust.
+- Keep review scaffolding out of public website copy.
+
+Acceptance criteria:
+- Future website and content edits are reviewed before final handoff.
+- Public pages do not expose internal review language.

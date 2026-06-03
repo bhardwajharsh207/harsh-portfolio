@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { productManagerPersona } from "@/lib/site";
+import { profileImage } from "@/lib/site";
 ---
 
 <BaseLayout
@@ -8,28 +8,49 @@ import { productManagerPersona } from "@/lib/site";
   description="Harsh Bhardwaj is a product manager focused on technical product work across commerce, growth, AI workflows, and scalable product systems."
 >
   <section class="container-page py-16 sm:py-24">
-    <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">About</p>
-    <h1 class="max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">{productManagerPersona.headline}</h1>
-    <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">{productManagerPersona.summary}</p>
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">About</p>
+        <h1 class="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">Product manager, builder, operator.</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
+          I work on product problems where the answer is not obvious at the start: customer workflows, data-heavy
+          decisions, AI-enabled tools, and systems that need to become simple enough for teams to trust and adopt.
+        </p>
+      </div>
+      <figure class="overflow-hidden rounded-[8px] border border-[var(--color-line)] bg-[var(--color-paper-strong)]">
+        <img
+          src={profileImage}
+          alt="Harsh Bhardwaj"
+          width="400"
+          height="600"
+          class="aspect-[2/3] w-full object-cover"
+          loading="lazy"
+        />
+      </figure>
+    </div>
   </section>
 
   <section class="container-page grid gap-10 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
     <div>
-      <h2 class="text-3xl font-semibold tracking-tight">Product persona</h2>
+      <h2 class="text-3xl font-semibold tracking-tight">How I Work</h2>
       <p class="mt-4 leading-8 text-[var(--color-muted)]">
-        I am not trying to present as a pure strategy PM or a pure technical builder. The position is in the middle:
-        a product operator who can turn ambiguous customer problems into usable systems, align teams, and keep the
-        product simple enough to adopt.
+        My strongest work sits between strategy and execution. I like shaping the problem, designing the operating
+        path, aligning teams, and staying close enough to the system details to make the product usable in practice.
       </p>
     </div>
     <div class="grid gap-4">
-      {
-        productManagerPersona.principles.map((principle) => (
-          <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
-            <p class="text-lg font-semibold">{principle}</p>
-          </div>
-        ))
-      }
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
+        <p class="text-lg font-semibold">Start with the user workflow and the business pressure behind it.</p>
+      </div>
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
+        <p class="text-lg font-semibold">Use data and customer evidence to find the problem shape before choosing the roadmap.</p>
+      </div>
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
+        <p class="text-lg font-semibold">Make technical systems understandable enough for customers and teams to trust.</p>
+      </div>
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
+        <p class="text-lg font-semibold">Ship in phases when the complete vision is too large to validate at once.</p>
+      </div>
     </div>
   </section>
 
