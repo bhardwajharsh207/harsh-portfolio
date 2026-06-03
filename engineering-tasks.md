@@ -275,3 +275,53 @@ Acceptance criteria:
 - `/lab` includes the portfolio system, lead engine, and WSJ audio digest.
 - Homepage previews multiple lab projects.
 - Writing system has a build-log placeholder for the experiment track.
+
+## Task 15: Public Website Copy Hygiene
+
+Status: Complete.
+
+Goal: Remove internal staging language from visible portfolio pages.
+
+Scope:
+- Remove visible "public-safe", "sanitized", "placeholder", and "draft" language.
+- Replace internal labels with normal portfolio language.
+- Add real contact links for LinkedIn and GitHub.
+- Add PM persona narrative to homepage and About.
+
+Acceptance criteria:
+- Public pages read like a normal portfolio, not an internal review document.
+- Contact page has live LinkedIn and GitHub links.
+- Homepage communicates the PM persona clearly.
+
+## Task 16: Product Experiment Detail Pages
+
+Status: Complete.
+
+Goal: Make lab projects navigable and closer to product websites.
+
+Scope:
+- Add `/lab/[slug]` project detail route.
+- Add project buttons from Lab cards.
+- Add product direction sections for Small Business Lead Engine and WSJ Audio Digest.
+- Add build-log links from project pages.
+
+Acceptance criteria:
+- Lab cards are clickable.
+- Each product experiment has a dedicated detail page.
+- The two product ideas have clear problem, product, technical depth, and next build milestones.
+
+## Task 17: Product Microsite Spin-Outs
+
+Status: Later.
+
+Goal: Spin the two lab products into fuller standalone product-style pages.
+
+Scope:
+- Create a lead-engine product page with offer, ICP, workflow, proof plan, and CTA.
+- Create a WSJ audio digest product page with pipeline, sample output, constraints, and local demo CTA.
+- Decide whether these live under `/products/*` or separate Vercel projects.
+
+Acceptance criteria:
+- Each product has a credible first-screen narrative.
+- Each product page has one clear CTA.
+- Neither page overclaims proof before a real experiment runs.

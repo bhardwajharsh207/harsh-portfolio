@@ -11,12 +11,17 @@ const data = post.data;
 
 <article class="group flex h-full flex-col border border-[var(--color-line)] bg-[var(--color-paper)] p-6 transition hover:border-[var(--color-accent)]">
   <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-    {new Date(data.date).getFullYear()} / {data.status}
+    {new Date(data.date).getFullYear()} / Build log
   </p>
   <h3 class="mt-4 text-2xl font-semibold leading-tight">{data.title}</h3>
   <p class="mt-4 flex-1 text-sm leading-6 text-[var(--color-muted)]">{data.description}</p>
   <div class="mt-5 flex flex-wrap gap-2">
     {data.tags.slice(0, 3).map((tag) => <span class="border border-[var(--color-line)] px-2.5 py-1 text-xs text-[var(--color-muted)]">{tag}</span>)}
   </div>
+  <a
+    href={`/writing/${data.slug}`}
+    class="mt-6 inline-flex text-sm font-semibold text-[var(--color-accent)] transition group-hover:text-[var(--color-accent-dark)]"
+  >
+    Read build log
+  </a>
 </article>
-

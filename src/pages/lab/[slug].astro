@@ -1,0 +1,83 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("labProjects");
+
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const data = project.data;
+const statusLabel = {
+  idea: "Concept",
+  prototype: "Prototype",
+  live: "Live build",
+  archived: "Archived",
+}[data.status];
+---
+
+<BaseLayout title={`${data.title} - Harsh Bhardwaj`} description={data.seoDescription}>
+  <article>
+    <header class="container-page py-16 sm:py-24">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+        Lab / {statusLabel}
+      </p>
+      <h1 class="max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">{data.title}</h1>
+      <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">{data.summary}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        {data.links.map((link) => (
+          <a
+            href={link.url}
+            target={link.url.startsWith("http") ? "_blank" : undefined}
+            rel={link.url.startsWith("http") ? "noreferrer" : undefined}
+            class="rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </header>
+
+    <section class="container-page grid gap-5 pb-12 md:grid-cols-3">
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Problem</p>
+        <p class="mt-4 leading-7 text-[var(--color-muted)]">{data.problem}</p>
+      </div>
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Product</p>
+        <p class="mt-4 leading-7 text-[var(--color-muted)]">{data.whatItDoes}</p>
+      </div>
+      <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-6">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Technical Depth</p>
+        <p class="mt-4 leading-7 text-[var(--color-muted)]">{data.technicalDepth}</p>
+      </div>
+    </section>
+
+    <section class="container-page grid gap-10 pb-20 lg:grid-cols-[260px_1fr]">
+      <aside class="space-y-6 text-sm lg:sticky lg:top-8 lg:self-start">
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Stack</p>
+          <div class="flex flex-wrap gap-2">
+            {data.stack.map((item) => <span class="border border-[var(--color-line)] px-2.5 py-1">{item}</span>)}
+          </div>
+        </div>
+        <div>
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Tags</p>
+          <div class="flex flex-wrap gap-2">
+            {data.tags.map((item) => <span class="border border-[var(--color-line)] px-2.5 py-1">{item}</span>)}
+          </div>
+        </div>
+      </aside>
+
+      <div class="case-study-content">
+        <Content />
+      </div>
+    </section>
+  </article>
+</BaseLayout>

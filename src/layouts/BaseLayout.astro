@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { siteLinks } from "@/lib/site";
 
 interface Props {
   title?: string;
@@ -24,6 +25,7 @@ const personJsonLd = {
   name: "Harsh Bhardwaj",
   jobTitle: "Product Manager",
   url: siteUrl,
+  sameAs: [siteLinks.linkedin, siteLinks.github],
   description,
   knowsAbout: [
     "Product Management",
@@ -64,6 +66,7 @@ const personJsonLd = {
           <a class="transition hover:text-[var(--color-ink)]" href="/writing">Writing</a>
           <a class="transition hover:text-[var(--color-ink)]" href="/stack">Stack</a>
           <a class="transition hover:text-[var(--color-ink)]" href="/about">About</a>
+          <a class="transition hover:text-[var(--color-ink)]" href={siteLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
         <a
           href="/contact"
@@ -77,9 +80,13 @@ const personJsonLd = {
       <slot />
     </main>
     <footer class="border-t border-[var(--color-line)] py-10">
-      <div class="container-page flex flex-col gap-3 text-sm text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
+      <div class="container-page flex flex-col gap-4 text-sm text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>© 2026 Harsh Bhardwaj</p>
-        <p>Product manager with technical depth.</p>
+        <div class="flex flex-wrap gap-4">
+          <a class="transition hover:text-[var(--color-ink)]" href={siteLinks.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="transition hover:text-[var(--color-ink)]" href={siteLinks.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a class="transition hover:text-[var(--color-ink)]" href="/contact">Contact</a>
+        </div>
       </div>
     </footer>
   </body>

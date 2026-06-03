@@ -1,14 +1,32 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteLinks } from "@/lib/site";
 ---
 
-<BaseLayout title="Contact - Harsh Bhardwaj">
+<BaseLayout title="Contact - Harsh Bhardwaj" description="Contact Harsh Bhardwaj through LinkedIn or GitHub.">
   <section class="container-page py-16 sm:py-24">
     <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Contact</p>
     <h1 class="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">Let’s connect.</h1>
     <p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
-      LinkedIn, GitHub, email, and resume links will live here.
+      The fastest way to reach me is LinkedIn. GitHub has the portfolio code and future build experiments.
     </p>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a
+        href={siteLinks.linkedin}
+        target="_blank"
+        rel="noreferrer"
+        class="rounded-full bg-[var(--color-charcoal)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-dark)]"
+      >
+        LinkedIn
+      </a>
+      <a
+        href={siteLinks.github}
+        target="_blank"
+        rel="noreferrer"
+        class="rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+      >
+        GitHub
+      </a>
+    </div>
   </section>
 </BaseLayout>
-

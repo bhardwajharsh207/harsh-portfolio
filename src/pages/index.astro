@@ -5,6 +5,7 @@ import LabProjectCard from "@/components/LabProjectCard.astro";
 import WritingCard from "@/components/WritingCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { sortByPriority } from "@/lib/content";
+import { productManagerPersona, siteLinks } from "@/lib/site";
 
 const caseStudies = sortByPriority(await getCollection("caseStudies"));
 const featuredCaseStudies = caseStudies.filter((caseStudy) => caseStudy.data.featured).slice(0, 4);
@@ -23,8 +24,8 @@ const writing = sortByPriority(await getCollection("writing"));
           Product manager building useful products from ambiguity to shipped outcomes.
         </h1>
         <p class="mt-7 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
-          I connect user insight, business context, and technical systems to build products that are clear,
-          measurable, and usable.
+          I work where customer pain, business pressure, and system complexity meet: commerce, growth,
+          AI workflows, and tools that need to become simple enough for real users.
         </p>
         <div class="mt-9 flex flex-wrap gap-3">
           <a
@@ -39,6 +40,14 @@ const writing = sortByPriority(await getCollection("writing"));
           >
             See Stack
           </a>
+          <a
+            href={siteLinks.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            class="rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
       <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -48,12 +57,30 @@ const writing = sortByPriority(await getCollection("writing"));
         </div>
         <div class="border-l border-[var(--color-line)] pl-5">
           <p class="text-2xl font-semibold">6</p>
-          <p class="mt-1 text-sm text-[var(--color-muted)]">Sanitized case studies live in V1</p>
+          <p class="mt-1 text-sm text-[var(--color-muted)]">Case studies across commerce and growth</p>
         </div>
         <div class="border-l border-[var(--color-line)] pl-5">
           <p class="text-2xl font-semibold">0 to 1</p>
           <p class="mt-1 text-sm text-[var(--color-muted)]">Strategy to execution narrative</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page border-y border-[var(--color-line)] py-12">
+    <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Product Persona</p>
+        <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">{productManagerPersona.headline}</h2>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {
+          productManagerPersona.principles.map((principle) => (
+            <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
+              <p class="font-semibold leading-7">{principle}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -75,8 +102,12 @@ const writing = sortByPriority(await getCollection("writing"));
   <section class="container-page grid gap-5 py-16 sm:py-20 lg:grid-cols-2">
     <div>
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Lab</p>
-      <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Experiments that show how the work is built.</h2>
-    </div>
+        <h2 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Experiments that show how the work is built.</h2>
+        <p class="mt-5 max-w-xl leading-8 text-[var(--color-muted)]">
+          These are product concepts being developed as visible build tracks, starting with problem framing and
+          first proof before full product polish.
+        </p>
+      </div>
     <div class="grid gap-5">
       {labProjects.slice(0, 3).map((project) => <LabProjectCard project={project} />)}
       {writing.slice(0, 1).map((post) => <WritingCard post={post} />)}

@@ -1,11 +1,52 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { productManagerPersona } from "@/lib/site";
 ---
 
-<BaseLayout title="About - Harsh Bhardwaj">
+<BaseLayout
+  title="About - Harsh Bhardwaj"
+  description="Harsh Bhardwaj is a product manager focused on technical product work across commerce, growth, AI workflows, and scalable product systems."
+>
   <section class="container-page py-16 sm:py-24">
     <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">About</p>
-    <h1 class="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">A product manager with technical depth.</h1>
+    <h1 class="max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">{productManagerPersona.headline}</h1>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">{productManagerPersona.summary}</p>
+  </section>
+
+  <section class="container-page grid gap-10 pb-20 lg:grid-cols-[0.85fr_1.15fr]">
+    <div>
+      <h2 class="text-3xl font-semibold tracking-tight">Product persona</h2>
+      <p class="mt-4 leading-8 text-[var(--color-muted)]">
+        I am not trying to present as a pure strategy PM or a pure technical builder. The position is in the middle:
+        a product operator who can turn ambiguous customer problems into usable systems, align teams, and keep the
+        product simple enough to adopt.
+      </p>
+    </div>
+    <div class="grid gap-4">
+      {
+        productManagerPersona.principles.map((principle) => (
+          <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-5">
+            <p class="text-lg font-semibold">{principle}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-charcoal)] py-16 text-white">
+    <div class="container-page grid gap-8 md:grid-cols-3">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Domain</p>
+        <p class="mt-3 text-2xl font-semibold">Commerce, growth, AI, and workflow systems</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Style</p>
+        <p class="mt-3 text-2xl font-semibold">Structured, customer-led, technically curious</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">Proof</p>
+        <p class="mt-3 text-2xl font-semibold">Case studies, build logs, and working product experiments</p>
+      </div>
+    </div>
   </section>
 </BaseLayout>
-

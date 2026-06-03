@@ -13,3 +13,7 @@ export function sortByPriority<T extends { data: { priority?: number; date?: str
 export function getCaseStudyPath(caseStudy: CollectionEntry<"caseStudies">) {
   return `/case-studies/${caseStudy.data.slug}`;
 }
+
+export function getLabProjectPath(project: CollectionEntry<"labProjects">) {
+  return `/lab/${project.data.slug}`;
+}

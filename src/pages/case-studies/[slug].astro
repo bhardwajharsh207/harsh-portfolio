@@ -20,7 +20,7 @@ const data = caseStudy.data;
   <article>
     <header class="container-page py-16 sm:py-24">
       <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-        {data.company} / {data.visibility}
+        {data.company} / Case Study
       </p>
       <h1 class="max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">{data.title}</h1>
       <p class="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">{data.summary}</p>
@@ -34,8 +34,8 @@ const data = caseStudy.data;
           <p class="mt-2 font-semibold">{data.timeframe}</p>
         </div>
         <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Impact</p>
-          <p class="mt-2 font-semibold">{data.heroMetric?.value ?? "TBD"}</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">Signal</p>
+          <p class="mt-2 font-semibold">{data.heroMetric?.value ?? "Product outcome"}</p>
         </div>
       </div>
     </header>
@@ -62,4 +62,3 @@ const data = caseStudy.data;
     </section>
   </article>
 </BaseLayout>
-

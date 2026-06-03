@@ -1,11 +1,49 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { siteLinks } from "@/lib/site";
 ---
 
-<BaseLayout title="Stack - Harsh Bhardwaj">
+<BaseLayout
+  title="Stack - Harsh Bhardwaj"
+  description="The technical and content system behind Harsh Bhardwaj's product manager portfolio."
+>
   <section class="container-page py-16 sm:py-24">
     <p class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Stack</p>
     <h1 class="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">The tools and systems behind the work.</h1>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
+      This portfolio is built as a content-driven product system: typed content collections, reusable page templates,
+      and a source-to-public workflow for case studies.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a
+        href={siteLinks.portfolioRepo}
+        target="_blank"
+        rel="noreferrer"
+        class="rounded-full bg-[var(--color-charcoal)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-dark)]"
+      >
+        View GitHub Repo
+      </a>
+      <a
+        href="/lab/portfolio-system"
+        class="rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+      >
+        Portfolio System
+      </a>
+    </div>
+  </section>
+
+  <section class="container-page grid gap-5 pb-20 md:grid-cols-3">
+    <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-6">
+      <h2 class="text-2xl font-semibold">Content model</h2>
+      <p class="mt-4 leading-7 text-[var(--color-muted)]">Case studies, lab projects, and writing are stored as typed Astro content collections.</p>
+    </div>
+    <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-6">
+      <h2 class="text-2xl font-semibold">Frontend</h2>
+      <p class="mt-4 leading-7 text-[var(--color-muted)]">Astro, MDX, and Tailwind keep the site fast, maintainable, and easy to update.</p>
+    </div>
+    <div class="border border-[var(--color-line)] bg-[var(--color-paper)] p-6">
+      <h2 class="text-2xl font-semibold">Workflow</h2>
+      <p class="mt-4 leading-7 text-[var(--color-muted)]">Private source notes stay separate from polished public copy, so the website can evolve without leaking internal detail.</p>
+    </div>
   </section>
 </BaseLayout>
-
